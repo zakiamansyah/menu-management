@@ -56,7 +56,9 @@ export default function MenuForm() {
     }
   };
 
-  (window as any).setMenuFormData = setFormData;
+  if (typeof window !== 'undefined') {
+    (window as any).setMenuFormData = setFormData;
+  }
 
   const [isMobile, setIsMobile] = useState(false);
   

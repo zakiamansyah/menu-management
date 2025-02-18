@@ -151,15 +151,17 @@ export default function MenuList() {
   const handleAddSubmenu = (parentItem: MenuItem) => {
     const randomId = uuidv4();
     
-    const setMenuFormData = (window as any).setMenuFormData;
-    if (setMenuFormData) {
-      setMenuFormData({
-        menuId: randomId,
-        depth: parentItem.depth + 1,
-        parentId: parentItem.id,
-        parentName: parentItem.name,
-        name: '',
-      });
+    if (typeof window !== 'undefined') {
+      const setMenuFormData = (window as any).setMenuFormData;
+      if (setMenuFormData) {
+        setMenuFormData({
+          menuId: randomId,
+          depth: parentItem.depth + 1,
+          parentId: parentItem.id,
+          parentName: parentItem.name,
+          name: '',
+        });
+      }
     }
   };
 
