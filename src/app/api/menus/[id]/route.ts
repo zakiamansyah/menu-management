@@ -11,10 +11,7 @@ export async function GET(
     const menu = await prisma.menu.findUnique({
       where: {
         id: params.id,
-      },
-      include: {
-        children: true,
-      },
+      }
     });
 
     if (!menu) {
@@ -39,7 +36,7 @@ export async function PUT(
 ) {
   try {
     const body = await request.json();
-    const { name, parentData, depth } = body;
+    const { name, parentId, parentName, depth } = body;
 
     const menu = await prisma.menu.update({
       where: {
@@ -47,7 +44,8 @@ export async function PUT(
       },
       data: {
         name,
-        parentData,
+        parentId,
+        parentName,
         depth,
       },
     });
