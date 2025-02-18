@@ -10,7 +10,7 @@ import { v4 as uuidv4 } from 'uuid';
 interface MenuItem {
   id: string;
   name: string;
-  children: MenuItem[];
+  children: string[];
   depth: number;
   parentId: string | null;
   parentName: string | null;
