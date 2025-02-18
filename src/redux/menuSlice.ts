@@ -4,7 +4,8 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 interface MenuItem {
   id: string;
   name: string;
-  parentData: string | null;
+  parentId: string | null;
+  parentName: string | null;
   depth: number;
   children: MenuItem[];
 }
