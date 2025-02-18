@@ -10,7 +10,8 @@ interface MenuItem {
   name: string;
   children: MenuItem[];
   depth: number;
-  parentData: string | null;
+  parentId: string | null;
+  parentName: string | null;
 }
 
 const SidebarItem = ({ item }: { item: MenuItem }) => {
